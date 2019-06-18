@@ -82,10 +82,6 @@
             img {
                 height: 100%;
                 width: auto;
-
-                @include mq(md) {
-                    // height: 100%;
-                }
             }
         }
 

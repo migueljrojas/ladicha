@@ -1,0 +1,54 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+    main.reserva
+        .container
+            .row
+                .col-24.col-md-10
+                    form.reserva__container
+                        h2.reserva__title reservar
+                        .reserva__wrapper
+                            .reserva__group
+                                h3.reserva__subtitle cantidad de comensales
+                                p.reserva__text 
+                                    span.-quantity 1 
+                                    | personas
+                            .reserva__buttons
+                                button.reserva__button.reserva__button--substract.-quantity(disabled)
+                                    span.-horizontal
+                                button.reserva__button.reserva__button--add.-quantity
+                                    span.-horizontal
+                                    span.-vertical
+                        .reserva__wrapper
+                            .reserva__group
+                                h3.reserva__subtitle hora
+                                p.reserva__text
+                                    span.-hour 11
+                                    | :
+                                    span.-minutes 30
+                            .reserva__buttons
+                                button.reserva__button.reserva__button--substract.-hour(disabled)
+                                    span.-horizontal
+                                button.reserva__button.reserva__button--add.-hour
+                                    span.-horizontal
+                                    span.-vertical
+                        .reserva__wrapper
+                            .reserva__group
+                                h3.reserva__subtitle día
+                                p.reserva__text miercoles 11/5
+                            .reserva__buttons
+                                button.reserva__date-button elegir
+                        button.reserva__reservar-button reservar
+        .reserva__col
+            img(src="/images/emblem.png")
+
+
+
+
+
+
+

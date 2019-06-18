@@ -1,0 +1,143 @@
+.restaurant {
+    padding-top: 16vh;
+    overflow: hidden;
+    
+    @include mq(md) {
+        padding-top: 0;
+    }
+    
+    &__hero {
+        position: relative;
+        height: 40vh;
+        overflow: hidden;
+        z-index: 5;
+
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+        }
+
+        &__title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            margin: 0;
+            color: $white;
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            @include mq(md) {
+                font-size: 80px;
+
+            }
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding-top: 40px;
+
+        .container {
+            
+            @include mq(md) {
+                height: 50vh;
+            }
+        }
+
+        &__text-decoration {
+            display: none;
+            position: absolute;
+            top: -90px;
+            left: -60px;
+            color: $gold;
+            font-size: 200px;
+            text-transform: uppercase;
+            letter-spacing: 100px;
+            font-weight: 700;
+            margin: 0;
+            z-index: 2;
+
+            @include mq(md) {
+                display: block;
+            }
+        }
+
+        &__image {
+            position: absolute;
+            bottom: 0;
+            right: -30px;
+            height: 50vh;
+            
+            @include mq(md) {
+                right: 0;
+                top: 0;
+                height: auto;
+                z-index: 3;
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+
+                @include mq(md) {
+                    // height: 100%;
+                }
+            }
+        }
+
+        &__text {
+            margin: 0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+
+            @include mq(md) {
+                padding-top: 15vh;
+                margin-bottom: 0;
+            }
+
+            &--bold {
+                padding-top: 20px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $darkGray;
+                margin-bottom: 0;
+                font-family: $titleFont;
+            }
+
+            &--big {
+                padding-top: 0;
+                text-transform: uppercase;
+                color: $midGray;
+                margin-bottom: 0;
+                font-family: $titleFont;
+            }
+        }
+
+        &__wrapper {
+            height: 50vh;
+            width: 50%;
+
+            @include mq(md) {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__quote {
+            margin: 0;
+            color: $blue;
+            font-weight: 700;
+            font-family: $titleFont;
+            font-size: 18px;
+
+            @include mq(md) {
+                padding-top: 15vh;
+            }
+        }
+    }
+}
+

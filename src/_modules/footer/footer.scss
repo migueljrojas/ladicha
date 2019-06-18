@@ -1,3 +1,33 @@
 .footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2000;
+    outline: none;
     
+    @include mq(md) {
+        // bottom: 20px;
+    }
+    
+    &__container {
+        position: relative;
+        height: 25vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: 90%;
+            
+            @include mq(md) {
+                height: 100%;
+            }
+        }
+    }
+
 }

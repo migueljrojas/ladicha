@@ -1,0 +1,53 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.informacion
+        .container
+            .row
+                .col-24.col-md-8
+                    .informacion__container
+                        .informacion__wrapper
+                            h3.informacion__title dirección
+                            p.informacion__text Alonso De Conrdova 4355 Local 202
+                            p.informacion__text Vitacura
+                            a.informacion__button(href="https://www.google.com/maps/place/Alonso+de+C%C3%B3rdova+4355,+Vitacura,+Regi%C3%B3n+Metropolitana,+Chile/@-33.4036986,-70.5895825,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf3aa3b7d209:0x91ba78f73c6e199d!8m2!3d-33.4037031!4d-70.5873938" target="_blank") ver en google maps
+                        .informacion__wrapper
+                            .informacion__group
+                                h3.informacion__title horario almuerzos
+                                p.informacion__text De Lunes A Domingo
+                                p.informacion__text 12:30 - 16:00
+                            .informacion__group
+                                h3.informacion__title horario noche
+                                p.informacion__text De Lunes A Miercoles
+                                p.informacion__text 19:00 - 23:30
+                            .informacion__group
+                                p.informacion__text De Jueves A Sabado
+                                p.informacion__text 19:00 - 01:00
+                            .informacion__group
+                                p.informacion__text Domingo Noche
+                                p.informacion__text Cerrado
+                        .informacion__wrapper
+                            h3.informacion__title reservas y contacto
+                            p.informacion__text 
+                                |514.842.2905 o 
+                                a(href="#") Reservas mesa
+                            p.informacion__text 
+                                |Para mayor información 
+                                a(href="#") info@ladicha.com
+        .informacion__map
+            iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.749514140955!2d-70.58958248426597!3d-33.40369860250153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf3aa3b7d209%3A0x91ba78f73c6e199d!2sAlonso+de+C%C3%B3rdova+4355%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana%2C+Chile!5e0!3m2!1ses-419!2sar!4v1560793466822!5m2!1ses-419!2sar" allowfullscreen')
+            img(src="/images/d-icon.png")
+
+
+
+
+
+
+            //- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.749514140955!2d-70.58958248426597!3d-33.40369860250153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf3aa3b7d209%3A0x91ba78f73c6e199d!2sAlonso+de+C%C3%B3rdova+4355%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana%2C+Chile!5e0!3m2!1ses-419!2sar!4v1560793466822!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+

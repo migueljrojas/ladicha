@@ -1,3 +1,32 @@
 .home {
+    overflow: hidden;
+    background: $blue;
+    padding-top: 16vh;
+
+    @include mq(md) {
+        padding-top: 0;
+    }
     
+    &__container {
+        height: 84vh;
+        position: relative;
+    }
+    
+    &__image {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        height: 50%;
+
+        @include mq(md) {
+            top: 50%;
+            height: 70%;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
 }

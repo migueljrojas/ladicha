@@ -1,0 +1,26 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+    main.restaurant
+        .restaurant__hero
+            h2.restaurant__hero__title el restaurant
+            img(src="/images/restaurant-hero.jpg")
+        .restaurant__content
+            p.restaurant__content__text-decoration restaurant
+            .restaurant__content__image
+                img(src="/images/restaurant-quote.png")
+            .container
+                .row
+                    .col-24.col-md-6
+                        p.restaurant__content__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    .col-24.col-md-6
+                        p.restaurant__content__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    .col-24.col-md-6.offset-md-2
+                        .restaurant__content__wrapper
+                            p.restaurant__content__quote "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                            p.restaurant__content__text.restaurant__content__text--bold Mauro colagreco
+                            p.restaurant__content__text.restaurant__content__text--big chef

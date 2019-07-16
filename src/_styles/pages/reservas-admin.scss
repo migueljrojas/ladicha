@@ -1,0 +1,185 @@
+.reservas-admin {
+    padding-top: 40px;
+    height: 84vh;
+
+    &__title {
+        color: $blue;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+
+    &__mesas-totales {
+        display: flex;
+    }
+
+    &__daypicker {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        color: $blue;
+        text-transform: uppercase;
+        font-weight: 700;
+        background: $gold;
+        border: none;
+        position: relative;
+        margin-bottom: 40px;
+
+    }
+
+    &__reservas-container {
+        h2 {
+            color: $blue;
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin: 0;
+            text-align: left;
+        }
+    }
+    &__reserva-details {
+        background: $lightGray;
+        padding: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__fields-group {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__group-label {
+        display: block;
+        text-transform: uppercase;
+        color: $blue;
+        font-size: 14px;
+        font-weight: 700;
+        width: 80px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    &__detail {
+        display: block;
+    }
+
+    &__turnos {
+        // display: flex;
+        // justify-content: flex-start;
+        // flex-wrap: nowrap;
+    }
+
+    &__turno {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    &__turno-title {
+        text-align: center;
+        width: 100%;
+        color: $blue;
+        margin: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        // &:not(:first-child) {
+        //     margin-left: 10px;
+        // }
+
+        &--total {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+    }
+
+    &__heading,
+    &__label,
+    &__group-title {
+        color: $blue;
+        text-transform: uppercase;
+        text-align: right;
+        font-weight: 700;
+        height: 30px;
+        margin: 0;
+        line-height: 30px;   
+    }
+
+    &__label,
+    &__heading {
+        width: 120px;
+    }
+
+    &__group-title {
+        margin-left: 20px;
+        text-align: center;
+        font-size: .8em;
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        display: block;
+        width: 40px;
+        height: 30px;
+        text-align: center;
+        border: none;
+        background: $lightGray;
+        color: $blue;
+        margin-left: 20px;
+    }
+
+    + footer {
+        display: none;
+    }
+}
+
+input[type="date"] {
+    outline: none;
+    -webkit-appearance: none;
+
+    &::-webkit-clear-button,
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+    }
+
+    &::-webkit-datetime-edit-fields-wrapper {
+        width: 100%;
+        text-align: center;
+        pointer-events: none;
+    }
+
+    &::-webkit-datetime-edit-month-field {
+        &:focus {
+            background-color: $gold;
+            color: $blue;
+        }
+
+    }
+}

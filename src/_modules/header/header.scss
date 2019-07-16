@@ -1,39 +1,41 @@
 .header {
-
+    
     $h: &;
-
+    
     background: $blue;
     position: fixed;
     width: 100%;
     z-index: 1000;
-
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    
     @include mq(md) {
-        position: relative;
+        position: absolute;
     }
-
+    
     &__container {
         display: flex;
-        height: 16vh;
-        padding: 3vh 0;
         justify-content: space-between;
         align-items: center;
     }    
-
+    
     &__logo {
         position: relative;
         min-width: 100px;
-        height: 5vh;
+        height: 50px;
+        padding: 15px 30px 15px 15px;
+        border-right: 1px solid rgba(255,255,255,.3);
+        display: flex;
+        justify-content: flex-start;
         z-index: 2000;
+        align-items: center;
+
         @include mq(md) {
-            height: 10vh;
+            height: 100px;
+            padding: 30px 50px 30px 0;
         }
 
         img {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 50%;
-            width: auto;
+            height: 100%;
         }
     }
 
@@ -118,14 +120,23 @@
     }
 
     &__select {
-        background: $blue;
+        background: $blue url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat right center;
         color: $gold;
         border: none;
         text-transform: uppercase;
         margin-right: 20px;
         font-family: $titleFont;
-        font-weight: 500; 
-}
+        font-weight: 500;
+        width: 40px;
+        height: 30px;
+        appearance: none;
+        position: relative;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
 
     &__hamburguer {
         cursor: pointer;

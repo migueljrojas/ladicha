@@ -1,23 +1,18 @@
 .carta {
     background: $blue;
-    padding-top: 16vh;
-    overflow: hidden;
-
-    @include mq(md) {
-        padding-top: 0;
-        height: 84vh;
-    }
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
 
     .container {
         position: relative;
     }
     
     &__container {
-        padding-top: 5vh;
+        padding-top: 80px;
         padding-bottom: 170px;
 
         @include mq(md) {
-            height: 84vh;
             padding-bottom: 0;
         }
     }
@@ -96,6 +91,7 @@
         background: transparent;
         line-height: 80px;
         text-transform: uppercase;
+        cursor: pointer;
     }
 
     &__subtitle {
@@ -135,6 +131,7 @@
         border-bottom: 3px solid $gold;
         opacity: 0;
         overflow: hidden;
+        cursor: pointer;
     }
 
     &.-active {
@@ -164,7 +161,7 @@
     @include mq(md) {
         display: block;
         position: absolute;
-        bottom: 10%;
+        bottom: -50px;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
@@ -207,6 +204,7 @@
     width: 20px;
     margin-left: auto;
     opacity: 0;
+    cursor: pointer;
 
     &.-active {
         opacity: 1;

@@ -1,14 +1,9 @@
 .home {
     overflow: hidden;
     background: $blue;
-    padding-top: 16vh;
-
-    @include mq(md) {
-        padding-top: 0;
-    }
     
     &__container {
-        height: 84vh;
+        height: 100vh;
         position: relative;
     }
     

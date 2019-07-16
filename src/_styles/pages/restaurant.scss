@@ -32,7 +32,6 @@
 
             @include mq(md) {
                 font-size: 80px;
-
             }
         }
     }
@@ -42,7 +41,6 @@
         padding-top: 40px;
 
         .container {
-            
             @include mq(md) {
                 height: 50vh;
             }

@@ -6,15 +6,37 @@
         padding-top: 0;
     }
 
-    &__container {
+    &__form-wrapper {
         height: 84vh;
+        position: relative;
+    }
+
+   
+    &__container {
+        @include trans;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        opacity: 0;
+        transform: translate3d(-100%, -50%, 0);
         display: flex;
+        overflow: hidden;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center;            
         
         @include mq(md) {
             padding: 0 80px 0 0;
         }
+        
+        &.-active {
+            opacity: 1;
+            transform: translate3d(0, -50%, 0);
+        }
+        // &--details,
+        // &--confirmation {
+
+        // }
     }
 
     &__title {
@@ -36,19 +58,50 @@
         }
     }
 
-    &__subtitle {
+    &__hours {
+        border: none;
+        height: 50px;
+        width: 100%;
+        background: $lightGray;
+        color: $blue;
+        padding: 0 10px;
+        outline: none;
+
+        option {
+
+        }
+    }
+
+    &__group {
+        width: 100%;
+    }
+
+    &__subtitle,
+    &__label {
+        @include trans;
+
         margin: 0;
         margin-bottom: 5px;
         text-transform: uppercase;
         color: $blue;
         font-size: 14px;
+
+        &.js-wrong {
+            color: $red;
+        }
     }
 
     &__text {
+        @include trans;
+
         margin: 0;
         font-size: 20px;
         text-transform: uppercase;
         color: $blue;
+
+        &.js-wrong {
+            color: $red;
+        }
     }
 
     &__buttons {
@@ -95,7 +148,9 @@
     }
 
     &__date-button,
-    &__reservar-button {
+    &__reservar-button,
+    &__continue-button,
+    &__back-button {
         width: 100%;
         height: 50px;
         line-height: 50px;
@@ -104,14 +159,86 @@
         font-weight: 700;
         background: $gold;
         border: none;
+        position: relative;
     }
 
-    &__reservar-button {
+    &__reservar-button,
+    &__continue-button,
+    &__back-button {
+        @include trans;
+
         margin-top: 40px;
+        padding-right: 20px;
+
+        &:disabled {
+            opacity: .5;
+        }
     }
 
     button {
         outline: none;
+        cursor: pointer;
+    }
+
+    &__back-button,
+    &__reservar-button {
+        width: 49%;
+    }
+
+    &__label {
+        font-size: 20px;
+    }
+    
+    &__input {
+        margin-top: 10px;
+        display: block;
+        border: none;
+        width: 100%;
+        background: $lightGray;
+        height: 50px;
+        padding: 0 20px;
+        color: $blue;
+    }
+
+    &__buttons-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__alert {
+        @include trans;
+
+        color: $red;
+        font-weight: 700;
+        opacity: 0;
+        margin: 0;
+        margin-top: 10px;
+        font-size: 12px;
+
+        @include mq(md) {
+            font-size: 16px;
+        }
+
+        &.-active {
+            opacity: 1;
+        }
+    }
+
+    &__confirmation-text {
+        color: $blue;
+        text-align: center;
+        font-size: 30px;
+
+        @include mq(md) {
+            font-size: 40px;
+        }
+
+        span {
+            display: block;
+            margin-top: 10px;
+            color: $gold;
+            font-weight: 700;
+        }
     }
 
     &__col {
@@ -148,5 +275,41 @@
 
     + footer {
         display: none;
+    }
+}
+
+input[type="date"] {
+    outline: none;
+    -webkit-appearance: none;
+
+    &::-webkit-clear-button,
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+    }
+
+    &::-webkit-datetime-edit-fields-wrapper {
+        width: 100%;
+        text-align: center;
+        pointer-events: none;
+    }
+
+    &::-webkit-datetime-edit-month-field {
+        &:focus {
+            background-color: $gold;
+            color: $blue;
+        }
+
     }
 }

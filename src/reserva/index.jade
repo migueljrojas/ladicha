@@ -8,41 +8,82 @@ block content
     main.reserva
         .container
             .row
-                .col-24.col-md-10
-                    form.reserva__container
-                        h2.reserva__title reservar
-                        .reserva__wrapper
-                            .reserva__group
-                                h3.reserva__subtitle cantidad de comensales
-                                p.reserva__text 
-                                    span.-quantity 1 
-                                    | personas
-                            .reserva__buttons
-                                button.reserva__button.reserva__button--substract.-quantity(disabled)
-                                    span.-horizontal
-                                button.reserva__button.reserva__button--add.-quantity
-                                    span.-horizontal
-                                    span.-vertical
-                        .reserva__wrapper
-                            .reserva__group
-                                h3.reserva__subtitle hora
-                                p.reserva__text
-                                    span.-hour 11
-                                    | :
-                                    span.-minutes 30
-                            .reserva__buttons
-                                button.reserva__button.reserva__button--substract.-hour(disabled)
-                                    span.-horizontal
-                                button.reserva__button.reserva__button--add.-hour
-                                    span.-horizontal
-                                    span.-vertical
-                        .reserva__wrapper
-                            .reserva__group
-                                h3.reserva__subtitle día
-                                p.reserva__text miercoles 11/5
-                            .reserva__buttons
-                                button.reserva__date-button elegir
-                        button.reserva__reservar-button reservar
+                form.col-24.col-md-10
+                    .reserva__form-wrapper
+                        .reserva__container.reserva__container--details.-active
+                            h2.reserva__title reservar
+                            .reserva__wrapper
+                                .reserva__group
+                                    h3.reserva__subtitle cantidad de comensales
+                                    p.reserva__text 
+                                        span.-quantity 1 
+                                        | persona(s)
+                                .reserva__buttons
+                                    button.reserva__button.reserva__button--substract.-quantity(disabled)
+                                        span.-horizontal
+                                    button.reserva__button.reserva__button--add.-quantity
+                                        span.-horizontal
+                                        span.-vertical
+
+
+                            .reserva__wrapper
+                                .reserva__group
+                                    h3.reserva__subtitle.js-subtitle día
+                                    p.reserva__text.js-date
+                                .reserva__buttons
+                                    input.reserva__date-button(type="date")
+
+                            .reserva__wrapper
+                                .reserva__group
+                                    h3.reserva__subtitle hora
+                                    select.reserva__hours(disabled)
+                                        option(disabled hidden selected) Selecciona el horario de la reserva
+                                        option(disabled) Almuerzo
+                                        option 12:30
+                                        option 13:00
+                                        option 13:30
+                                        option 14:00
+                                        option 14:30
+                                        option 15:00
+                                        option(disabled) Cena
+                                        option 19:00
+                                        option 19:30
+                                        option 20:00
+                                        option 20:30
+                                        option 21:00
+                                        option 21:30
+                                        option 22:00
+                                        option 22:30
+                                        option 23:00
+                                        option.-jueves-sabado 23:30
+                                        option.-jueves-sabado 24:00
+
+                            button.reserva__continue-button(disabled) continuar
+                            p.reserva__alert *Por favor selecciona una fecha valida para tu reserva
+
+                        .reserva__container.reserva__container--information
+                            h2.reserva__title datos personales
+                            .reserva__wrapper
+                                .reserva__group
+                                    label.reserva__label Nombre y apellido
+                                    input.reserva__input.reserva__input--nombre(type="text" required)
+                            .reserva__wrapper
+                                .reserva__group
+                                    label.reserva__label telefono
+                                    input.reserva__input.reserva__input--telefono(type="text" required)
+                            .reserva__wrapper
+                                .reserva__group
+                                    label.reserva__label e-mail
+                                    input.reserva__input.reserva__input--email(type="email" required)
+                            span.reserva__buttons-wrapper
+                                button.reserva__back-button Regresar
+                                button.reserva__reservar-button(disabled) Reservar
+
+                        .reserva__container.reserva__container--confirmation
+                            p.reserva__confirmation-text
+                                |Tu reserva fue confirmada para el dia:
+                                br
+                                span.js-confirmation
         .reserva__col
             img(src="/images/emblem.png")
 

@@ -1,0 +1,134 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.reservas-admin
+    .container
+        .row
+            .col-24
+                h2.reservas-admin__title Base de datos de Reservas
+            .col-24.col-md-8
+                .reservas-admin__reservas-list
+                    h2.reservas-admin__reservas-title Resumen de reservas
+                    input.reservas-admin__daypicker(type="date")
+                    .reservas-admin__reservas-container
+            .col-24.col-md-16
+                .reservas-admin__turnos
+                    .reservas-admin__group.reservas-admin__group--total
+                        span.reservas-admin__label total mesas
+                        input.reservas-admin__input
+                    .reservas-admin__turno.reservas-admin__turno--almuerzo
+                        h3.reservas-admin__turno-title Almuerzo
+                        .reservas-admin__group
+                            span.reservas-admin__heading total
+                            span.reservas-admin__heading Reservas
+                            span.reservas-admin__heading Disponibles
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 12:30
+                            input.reservas-admin__input(value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input              
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 13:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 13:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 14:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+                        
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 14:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+                        
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 15:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+                    .reservas-admin__turno.reservas-admin__turno--cena
+                        h3.reservas-admin__turno-title Cena
+                        .reservas-admin__group
+                            span.reservas-admin__heading total
+                            span.reservas-admin__heading Reservas
+                            span.reservas-admin__heading Disponibles
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 19:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 19:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 20:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 20:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 21:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 21:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 22:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 22:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 23:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 23:30
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input
+
+                        .reservas-admin__group
+                            h3.reservas-admin__group-title 24:00
+                            input.reservas-admin__input( value="10")
+                            input.reservas-admin__input
+                            input.reservas-admin__input

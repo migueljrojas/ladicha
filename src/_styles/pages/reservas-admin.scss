@@ -72,10 +72,32 @@
         display: block;
     }
 
-    &__turnos {
+    // &__turnos {
         // display: flex;
         // justify-content: flex-start;
         // flex-wrap: nowrap;
+    // }
+
+    &__update-mesas-button {
+        border: none;
+        background: $gold;
+        color: $blue;
+        height: 50px;
+        opacity: .7;
+        font-weight: 700;
+        pointer-events: none;
+        text-align: center;
+        line-height: 50px;
+        padding: 0 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+        outline: none;
+        margin-top: 40px;
+
+        &.-active {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 
     &__turno {

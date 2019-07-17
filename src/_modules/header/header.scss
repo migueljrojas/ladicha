@@ -117,7 +117,8 @@
         }
     }
 
-    &__select {
+    &__language {
+        position: relative;
         background: $blue;
         color: $gold;
         border: none;
@@ -125,7 +126,41 @@
         margin-right: 20px;
         font-family: $titleFont;
         font-weight: 500; 
-}
+        height: 18px;
+        width: 30px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 3px);
+            right: 0;
+            transform: translateY(-50%) rotate(45deg);
+            border-bottom: 3px solid $gold;
+            border-right: 3px solid $gold;
+            border-top: 3px solid transparent;
+            border-left: 3px solid transparent;
+            height: 0;
+            width: 0;
+        }
+
+        &:hover {
+            li:not(.-active) {
+                opacity: 1;
+            }
+        }
+        
+        li {
+            @include trans;
+            position: absolute;
+            opacity: 0;
+            top: 20px;
+
+            &.-active {
+                opacity: 1;
+                top: 0;
+            }
+        }
+    }
 
     &__hamburguer {
         cursor: pointer;

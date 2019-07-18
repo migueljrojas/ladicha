@@ -271,7 +271,7 @@ var Reserva = function() {
             hora: selectedTime
         };
         storeReservaInDatabase(reservaDetails);
-        sendMailVariables(reservaDetails);
+        mailInformation(reservaDetails);
     });
 
     function storeReservaInDatabase(reserva) {
@@ -309,7 +309,7 @@ var Reserva = function() {
         });
     }
 
-    function sendMailVariables(reserva) {
+    function mailInformation(reserva) {
         var selectedDate = new Date($('.reserva__date-button').val() + ' 00:00:00');
 
         $.ajax({
@@ -326,19 +326,8 @@ var Reserva = function() {
             }
         }).done(function(response) {
             console.log('success AJAX', response);
-            if(response === 'success') {
-
-                updateText(confirmationText, selectedDate, weekDays, reserva.hora);
-
-                // var text = confirmationText.html();
-                // text = text + ' a las ' + (reserva.hora).toString();
-                // console.log(text);
-
-                // confirmationText.html(text);
-
-                informationContainer.removeClass('-active');
-                confirmationContainer.addClass('-active');
-            }
+            // if(response === 'success') {
+            // }
         }).fail(function(response) {
             console.log('fail', response);
         });

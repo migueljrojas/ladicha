@@ -47,8 +47,6 @@ var Reserva = function() {
         }
     });
 
-    //
-    
     var dateTextField = $('.js-date');
     var reservarButton = $('.reserva__reservar-button');
     var continueButton = $('.reserva__continue-button');
@@ -217,12 +215,6 @@ var Reserva = function() {
         var day = ("0" + selectedDate.getDate()).slice(-2);
         var formattedDate = year + month + day;
         console.log($("[data-time]"));
-
-        // var currentReservas = parseInt(reservas.val());
-        
-        // if(reserva && reserva > 0) {
-            //     reservas.val(currentReservas + reserva);
-            // }
             
         $("[data-time]").each(function() {
             var time = $(this).data('time');
@@ -279,6 +271,7 @@ var Reserva = function() {
             hora: selectedTime
         };
         storeReservaInDatabase(reservaDetails);
+        sendMailVariables(reservaDetails);
     });
 
     function storeReservaInDatabase(reserva) {
@@ -287,6 +280,41 @@ var Reserva = function() {
         $.ajax({
             type: "POST",
             url: 'http://localhost/store-reservas.php',
+            crossDomain: true,
+            data: {            
+                inputName: reserva.nombre,
+                inputPhone: reserva.telefono,
+                inputEmail: reserva.email,
+                selectedDate: reserva.fecha,
+                personQuantity: reserva.personas,
+                selectedTime: reserva.hora
+            }
+        }).done(function(response) {
+            console.log('success AJAX', response);
+            if(response === 'success') {
+
+                updateText(confirmationText, selectedDate, weekDays, reserva.hora);
+
+                // var text = confirmationText.html();
+                // text = text + ' a las ' + (reserva.hora).toString();
+                // console.log(text);
+
+                // confirmationText.html(text);
+
+                informationContainer.removeClass('-active');
+                confirmationContainer.addClass('-active');
+            }
+        }).fail(function(response) {
+            console.log('fail', response);
+        });
+    }
+
+    function sendMailVariables(reserva) {
+        var selectedDate = new Date($('.reserva__date-button').val() + ' 00:00:00');
+
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost/send-mail.php',
             crossDomain: true,
             data: {            
                 inputName: reserva.nombre,

@@ -149,9 +149,9 @@ var Reserva = function() {
         continueButton.removeAttr('disabled');
     })
 
-    function updateText(element, date, days, hour) {
+    function updateText(element, date, days, hour, people) {
         if(hour) {
-            element.html(days[date.getDay()] + ' ' + (date.getDate()) + '/' + (date.getMonth() + 1) + ' a las ' + hour);
+            element.html(days[date.getDay()] + ' ' + (date.getDate()) + '/' + (date.getMonth() + 1) + ' a las ' + hour + 'para ' + people + 'persona(s)');
         } else {
             element.html(days[date.getDay()] + ' ' + (date.getDate()) + '/' + (date.getMonth() + 1));
         }
@@ -187,7 +187,7 @@ var Reserva = function() {
         var inputEmail = reservaEmail.val();
 
         return inputEmail;
-    })
+    });
 
     reservaInput.on('change', function() {
         if(selectedReservaName.val().length > 0 && selectedReservaPhone.val().length > 0  && selectedReservaEmail.val().length > 0) {
@@ -200,7 +200,7 @@ var Reserva = function() {
         //     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         //     return re.test(String(email).toLowerCase());
         // }
-    })
+    });
 
     mesasInput.on('change', function() {
         updateMesasButton.addClass('-active');
@@ -223,7 +223,7 @@ var Reserva = function() {
             var reservas = hourGroup.find('.js-reservas');
             var disponible = hourGroup.find('.js-disponible');
             disponible.val(total.val() - reservas.val());
-        })
+        });
 
         var mesasUpdate = {
             fecha: formattedDate,
@@ -247,7 +247,7 @@ var Reserva = function() {
         };
 
         storeMesasInDatabase(mesasUpdate);
-    })
+    });
     
     reservarButton.on('click', function(e) {
         e.preventDefault();
@@ -271,7 +271,7 @@ var Reserva = function() {
             hora: selectedTime
         };
         storeReservaInDatabase(reservaDetails);
-        mailInformation(reservaDetails);
+        sendReservConfirmByEmail(reservaDetails);
     });
 
     function storeReservaInDatabase(reserva) {
@@ -279,7 +279,7 @@ var Reserva = function() {
 
         $.ajax({
             type: "POST",
-            url: 'http://localhost/store-reservas.php',
+            url: '/store-reservas.php',
             crossDomain: true,
             data: {            
                 inputName: reserva.nombre,
@@ -293,7 +293,7 @@ var Reserva = function() {
             console.log('success AJAX', response);
             if(response === 'success') {
 
-                updateText(confirmationText, selectedDate, weekDays, reserva.hora);
+                updateText(confirmationText, selectedDate, weekDays, reserva.hora, reserva.personas);
 
                 // var text = confirmationText.html();
                 // text = text + ' a las ' + (reserva.hora).toString();
@@ -309,12 +309,12 @@ var Reserva = function() {
         });
     }
 
-    function mailInformation(reserva) {
+    function sendReservConfirmByEmail(reserva) {
         var selectedDate = new Date($('.reserva__date-button').val() + ' 00:00:00');
 
         $.ajax({
             type: "POST",
-            url: 'http://localhost/send-mail.php',
+            url: '/enviar.php',
             crossDomain: true,
             data: {            
                 inputName: reserva.nombre,
@@ -338,7 +338,7 @@ var Reserva = function() {
 
         $.ajax({
             type: "POST",
-            url: 'http://localhost/store-mesas.php',
+            url: '/store-mesas.php',
             crossDomain: true,
             data: {            
                 fecha: mesas.fecha,
@@ -380,8 +380,8 @@ var Reserva = function() {
             getReservasFromDatabase(formattedDate)
         ).done(function(data) {
             var reservasInDatabase = JSON.parse(data);
-            resetValues();
-
+            console.log(reservasInDatabase);
+            
             if(reservasInDatabase.length > 0) {
                 var formFieldSet = reservasInDatabase.map(function(reservaItem,index){
                 var reservaName = reservaItem.nombre;
@@ -480,7 +480,7 @@ var Reserva = function() {
     function getReservasFromDatabase(date) {
         return new Promise(function(resolve, reject) {
             resolve(
-                $.get('http://localhost/load-reservas.php?selectedDate=' + date, function (data, status) {
+                $.get('/load-reservas.php?selectedDate=' + date, function (data, status) {
                     return data;
                 })
             );
@@ -490,7 +490,7 @@ var Reserva = function() {
     function getMesasFromDatabase(date) {
         return new Promise(function(resolve, reject) {
             resolve(
-                $.get('http://localhost/load-mesas.php?selectedDate=' + date, function (data, status) {
+                $.get('/load-mesas.php?selectedDate=' + date, function (data, status) {
                     return data;
                 })
             );

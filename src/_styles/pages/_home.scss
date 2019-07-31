@@ -1,6 +1,6 @@
 .home {
     overflow: hidden;
-    background: $blue;
+    background: $blue url('/images/back-home.jpg') no-repeat center center / cover;
     
     &__container {
         height: 100vh;

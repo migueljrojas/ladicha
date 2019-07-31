@@ -3,13 +3,17 @@
     display: flex;
     align-items: center;
     min-height: 100vh;
+    padding-top: 70px;
+
+    @include mq(md) {
+        padding-top: 80px;
+    }
 
     .container {
         position: relative;
     }
     
     &__container {
-        padding-top: 80px;
         padding-bottom: 170px;
 
         @include mq(md) {
@@ -161,7 +165,7 @@
     @include mq(md) {
         display: block;
         position: absolute;
-        bottom: -50px;
+        bottom: -35px;
         left: 50%;
         transform: translateX(-50%);
         display: flex;

@@ -30,4 +30,26 @@
         }
     }
 
+    &__cta {
+        color: $blue;
+        background: $gold;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        height: 7vw;
+        min-width: 60px;
+        min-height: 60px;
+        font-size: 14px;
+        font-family: $titleFont;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 600;
+
+        @include mq(md) {
+            font-size: 16px;
+        }
+    }
+
 }

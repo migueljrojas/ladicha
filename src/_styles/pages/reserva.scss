@@ -1,16 +1,23 @@
 .reserva {
     position: relative;
-    padding-top: 16vh;
+    padding-top: 50px;
+    height: 100%;
+    display: flex;
 
     @include mq(md) {
-        padding-top: 0;
+        padding-top: 100px;
     }
 
     &__form-wrapper {
-        height: 84vh;
         position: relative;
+        height: 100%;
     }
 
+    .container,
+    .row,
+    .col-24 {
+        height: 100%;
+    }
    
     &__container {
         @include trans;
@@ -23,7 +30,8 @@
         display: flex;
         overflow: hidden;
         flex-direction: column;
-        justify-content: center;            
+        justify-content: center;
+        pointer-events: none;
         
         @include mq(md) {
             padding: 0 80px 0 0;
@@ -32,6 +40,7 @@
         &.-active {
             opacity: 1;
             transform: translate3d(0, -50%, 0);
+            pointer-events: all;
         }
         // &--details,
         // &--confirmation {
@@ -251,9 +260,10 @@
         height: 100vw;
         
         @include mq(md) {
-            height: 84vh;
+            height: 100%;
             position: absolute;
             right: 0;
+            padding-top: 90px;
         }
 
         img {
